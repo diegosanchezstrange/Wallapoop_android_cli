@@ -1,4 +1,4 @@
-package com.example.wallapoop2;
+package com.example.wallapoop2.product;
 
 public class Product
 {

@@ -1,4 +1,4 @@
-package com.example.wallapoop2;
+package com.example.wallapoop2.product;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,6 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import com.example.wallapoop2.app.ListFragment;
+import com.example.wallapoop2.R;
 
 import java.util.List;
 

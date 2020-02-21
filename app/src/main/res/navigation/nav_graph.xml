@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.wallapoop2.LoginFragment"
+        android:name="com.example.wallapoop2.login.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/signinFragment"
-        android:name="com.example.wallapoop2.SigninFragment"
+        android:name="com.example.wallapoop2.login.SigninFragment"
         android:label="fragment_signin"
         tools:layout="@layout/fragment_signin" >
         <action
@@ -27,7 +27,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.wallapoop2.SplashFragment"
+        android:name="com.example.wallapoop2.login.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.wallapoop2.ListFragment"
+        android:name="com.example.wallapoop2.app.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/start"
-        android:name="com.example.wallapoop2.Start"
+        android:name="com.example.wallapoop2.login.Start"
         android:label="fragment_start"
         tools:layout="@layout/fragment_start" >
         <action
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
-        android:name="com.example.wallapoop2.ProductDetailFragment"
+        android:name="com.example.wallapoop2.product.ProductDetailFragment"
         android:label="fragment_product_detail"
         tools:layout="@layout/fragment_product_detail" />
 

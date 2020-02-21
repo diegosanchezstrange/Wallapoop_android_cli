@@ -1,4 +1,4 @@
-package com.example.wallapoop2;
+package com.example.wallapoop2.app;
 
 
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.wallapoop2.R;
+import com.example.wallapoop2.product.Product;
+import com.example.wallapoop2.product.RecyclerProductAdapter;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,6 +80,9 @@ public class ListFragment extends Fragment
         };
 
         productsAdapter.setProductOnClick(onProductClick);
+
+        BottomNavigationView bottomNav = view.findViewById(R.id.bottom_nav);
+        NavigationUI.setupWithNavController(bottomNav, myNavCtrl);
 
         return view;
     }

@@ -1,4 +1,4 @@
-package com.example.wallapoop2;
+package com.example.wallapoop2.login;
 
 
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.wallapoop2.R;
 
 import static androidx.navigation.Navigation.findNavController;
 
