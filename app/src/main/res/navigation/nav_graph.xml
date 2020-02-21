@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_bueno"
+    app:startDestination="@id/start">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.wallapoop2.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/actionLoginToSplash"
+            app:destination="@id/splashFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signinFragment"
+        android:name="com.example.wallapoop2.SigninFragment"
+        android:label="fragment_signin"
+        tools:layout="@layout/fragment_signin" >
+        <action
+            android:id="@+id/actionSigninToSplash"
+            app:destination="@id/splashFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.example.wallapoop2.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/actionLoadListFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.wallapoop2.ListFragment"
+        android:label="fragment_list"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/actionListToProduct"
+            app:destination="@id/productDetailFragment" />
+        <action
+            android:id="@+id/actionBack"
+            app:destination="@id/start" />
+    </fragment>
+    <fragment
+        android:id="@+id/start"
+        android:name="com.example.wallapoop2.Start"
+        android:label="fragment_start"
+        tools:layout="@layout/fragment_start" >
+        <action
+            android:id="@+id/actionLoginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/actionSigninFragment"
+            app:destination="@id/signinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailFragment"
+        android:name="com.example.wallapoop2.ProductDetailFragment"
+        android:label="fragment_product_detail"
+        tools:layout="@layout/fragment_product_detail" />
+
+</navigation>
