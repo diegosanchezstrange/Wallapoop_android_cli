@@ -36,6 +36,7 @@
             app:layout_constraintVertical_bias="0.5">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userLoginName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -53,8 +54,10 @@
             app:layout_constraintVertical_bias="0.7">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userLoginPasswd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
