@@ -3,6 +3,7 @@ package com.example.wallapoop2.app;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -12,9 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toolbar;
 
 import com.example.wallapoop2.R;
 import com.example.wallapoop2.product.Product;
@@ -59,6 +60,16 @@ public class ListFragment extends Fragment
             add(new Product("Play Station 3", null, "@drawable/psone", 179, 1));
             add(new Product("Bragas usadas", null, null, 12, 1));
             add(new Product("Adadas Originales", null, null, 70, 1));
+
+            add(new Product("Perro", null, null, 130, 1));
+            add(new Product("Iphone 8", null, null, 350, 1));
+            add(new Product("PS4", null, "@drawable/psone", 120, 1));
+            add(new Product("Porro", null, null, 1.2f, 1));
+            add(new Product("Usb pen 16GB", null, null, 4.5f, 1));
+            add(new Product("Opel Corsa 1998 TDI", null, null, 2200, 1));
+            add(new Product("Play Station 3", null, "@drawable/psone", 179, 1));
+            add(new Product("Bragas usadas", null, null, 12, 1));
+            add(new Product("Adadas Originales", null, null, 70, 1));
         }} ;
 
 
@@ -89,9 +100,44 @@ public class ListFragment extends Fragment
         BottomNavigationView bottomNav = view.findViewById(R.id.bottom_nav);
         NavigationUI.setupWithNavController(bottomNav, myNavCtrl);
 
+        setOnBottomBarClicks(myNavCtrl, bottomBar);
+
         return view;
     }
 
+
+
+    public void setOnBottomBarClicks (final NavController navCtrl, BottomNavigationView bottomBar)
+    {
+        bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
+        {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
+                switch (menuItem.getItemId())
+                {
+                    case R.id.navigation_home:
+                        navCtrl.navigate(R.id.actionProfileFragment);
+                        break;
+
+                    case R.id.navigation_favs:
+
+                        break;
+
+
+                    case R.id.navigation_profile:
+                        navCtrl.navigate(R.id.actionProfileFragment);
+                        break;
+
+                    case R.id.navigation_settings:
+                        navCtrl.navigate(R.id.actionSettingsFragment);
+                        break;
+                }
+
+                return true;
+            }
+        });
+    }
 
 
 }

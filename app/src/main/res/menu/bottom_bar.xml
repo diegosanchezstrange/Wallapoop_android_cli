@@ -3,22 +3,22 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_poop_standard"
+        android:icon="@drawable/ic_home"
         android:title="Home"/>
 
     <item
+        android:id="@+id/navigation_favs"
+        android:icon="@drawable/ic_star"
+        android:title="Favoritos"/>
+
+    <item
         android:id="@+id/navigation_profile"
-        android:icon="@drawable/ic_poop_passive_aggressive"
+        android:icon="@drawable/ic_profile"
         android:title="Mi Perfil"/>
 
     <item
-        android:id="@+id/navigation_extr"
-        android:icon="@drawable/ic_poop_surprise"
-        android:title="Extra"/>
-
-    <item
         android:id="@+id/navigation_settings"
-        android:icon="@drawable/ic_poop_surprise"
+        android:icon="@drawable/ic_settings"
         android:title="Ajustes"/>
 
 </menu>

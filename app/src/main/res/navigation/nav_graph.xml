@@ -46,6 +46,12 @@
         <action
             android:id="@+id/actionBack"
             app:destination="@id/start" />
+        <action
+            android:id="@+id/actionProfileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/actionSettingsFragment"
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/start"
@@ -64,5 +70,15 @@
         android:name="com.example.wallapoop2.product.ProductDetailFragment"
         android:label="fragment_product_detail"
         tools:layout="@layout/fragment_product_detail" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.wallapoop2.app.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.wallapoop2.app.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 
 </navigation>
