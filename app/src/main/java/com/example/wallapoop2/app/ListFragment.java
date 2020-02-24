@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.wallapoop2.MainActivity;
 import com.example.wallapoop2.R;
 import com.example.wallapoop2.product.Product;
 import com.example.wallapoop2.product.RecyclerProductAdapter;
@@ -33,7 +34,6 @@ public class ListFragment extends Fragment
 {
 
     private NavController myNavCtrl;
-    private BottomNavigationView bottomBar;
 
     private RecyclerView recyclerView;
     private RecyclerProductAdapter productsAdapter;
@@ -73,7 +73,8 @@ public class ListFragment extends Fragment
         }} ;
 
 
-        bottomBar = view.findViewById(R.id.bottom_nav);
+
+        MainActivity.myBottomBar.setVisibility(View.VISIBLE);
 
         recyclerView = view.findViewById(R.id.recyclerProducts);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -97,47 +98,14 @@ public class ListFragment extends Fragment
 
         productsAdapter.setProductOnClick(onProductClick);
 
-        BottomNavigationView bottomNav = view.findViewById(R.id.bottom_nav);
-        NavigationUI.setupWithNavController(bottomNav, myNavCtrl);
 
-        setOnBottomBarClicks(myNavCtrl, bottomBar);
 
         return view;
     }
 
 
 
-    public void setOnBottomBarClicks (final NavController navCtrl, BottomNavigationView bottomBar)
-    {
-        bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener()
-        {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
-            {
-                switch (menuItem.getItemId())
-                {
-                    case R.id.navigation_home:
-                        navCtrl.navigate(R.id.actionProfileFragment);
-                        break;
 
-                    case R.id.navigation_favs:
-
-                        break;
-
-
-                    case R.id.navigation_profile:
-                        navCtrl.navigate(R.id.actionProfileFragment);
-                        break;
-
-                    case R.id.navigation_settings:
-                        navCtrl.navigate(R.id.actionSettingsFragment);
-                        break;
-                }
-
-                return true;
-            }
-        });
-    }
 
 
 }
