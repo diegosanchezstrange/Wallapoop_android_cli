@@ -46,12 +46,6 @@
         <action
             android:id="@+id/actionBack"
             app:destination="@id/start" />
-        <action
-            android:id="@+id/actionProfileFragment"
-            app:destination="@id/profileFragment" />
-        <action
-            android:id="@+id/actionSettingsFragment"
-            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
         android:id="@+id/start"
@@ -80,5 +74,10 @@
         android:name="com.example.wallapoop2.app.SettingsFragment"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/addingProductFragment"
+        android:name="com.example.wallapoop2.app.PublishProductFragment"
+        android:label="fragment_adding_product"
+        tools:layout="@layout/fragment_publish_product" />
 
 </navigation>

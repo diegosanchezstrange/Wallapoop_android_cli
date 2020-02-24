@@ -3,20 +3,16 @@ package com.example.wallapoop2;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.fragment.app.ListFragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
+import com.example.wallapoop2.app.PublishProductFragment;
 import com.example.wallapoop2.app.ProfileFragment;
 import com.example.wallapoop2.app.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -70,8 +66,8 @@ public class MainActivity extends FragmentActivity
                         //myNavCtrl.navigate(R.id.actionProfileFragment);
                         break;
 
-                    case R.id.navigation_favs:
-                        fragment = new ListFragment();
+                    case R.id.navigation_publish:
+                        fragment = new PublishProductFragment();
                         break;
 
                     case R.id.navigation_profile:
