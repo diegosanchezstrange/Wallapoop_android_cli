@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toolbar;
 
 import com.example.wallapoop2.R;
 import com.example.wallapoop2.product.Product;
@@ -31,6 +32,7 @@ public class ListFragment extends Fragment
 {
 
     private NavController myNavCtrl;
+    private BottomNavigationView bottomBar;
 
     private RecyclerView recyclerView;
     private RecyclerProductAdapter productsAdapter;
@@ -58,6 +60,9 @@ public class ListFragment extends Fragment
             add(new Product("Bragas usadas", null, null, 12, 1));
             add(new Product("Adadas Originales", null, null, 70, 1));
         }} ;
+
+
+        bottomBar = view.findViewById(R.id.bottom_nav);
 
         recyclerView = view.findViewById(R.id.recyclerProducts);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));

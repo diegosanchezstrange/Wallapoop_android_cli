@@ -2,18 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_songs"
+        android:id="@+id/navigation_home"
         android:icon="@drawable/ic_poop_standard"
-        android:title="Songs"/>
+        android:title="Home"/>
 
     <item
-        android:id="@+id/navigation_albums"
+        android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_poop_passive_aggressive"
-        android:title="Albums"/>
+        android:title="Mi Perfil"/>
 
     <item
-        android:id="@+id/navigation_artists"
+        android:id="@+id/navigation_extr"
         android:icon="@drawable/ic_poop_surprise"
-        android:title="Artists"/>
+        android:title="Extra"/>
+
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_poop_surprise"
+        android:title="Ajustes"/>
 
 </menu>
