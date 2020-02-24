@@ -19,7 +19,7 @@
             android:layout_marginTop="32dp"
             android:shadowDx="10"
             android:text="ENTRAR"
-            android:textColor="@color/textPrimary"
+            android:textColor="@color/colorAccent"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -63,7 +63,10 @@ public class MainActivity extends FragmentActivity
                 {
                     case R.id.navigation_home:
                         fragment = new ListFragment();
-                        //myNavCtrl.navigate(R.id.actionProfileFragment);
+                        break;
+
+                    case R.id.navigation_favs:
+                        fragment = new ListFragment();
                         break;
 
                     case R.id.navigation_publish:
@@ -72,12 +75,10 @@ public class MainActivity extends FragmentActivity
 
                     case R.id.navigation_profile:
                         fragment = new ProfileFragment();
-                        //myNavCtrl.navigate(R.id.actionProfileFragment);
                         break;
 
                     case R.id.navigation_settings:
                         fragment = new SettingsFragment();
-                        //myNavCtrl.navigate(R.id.actionSettingsFragment);
                         break;
                 }
 

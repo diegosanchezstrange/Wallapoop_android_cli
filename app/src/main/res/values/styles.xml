@@ -18,7 +18,11 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="OutlinedInputText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/colorAccent50</item>
+        <item name="boxStrokeColor">@color/colorAccent50</item>
+        <item name="boxStrokeWidth">2dp</item>
         <item name="counterEnabled">true</item>
+        <item name="counterTextAppearance">@color/colorAccent50</item>
         <item name="errorEnabled">true</item>
     </style>
 
@@ -26,26 +30,26 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/button_generic</item>
-        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <style name="ButtonSmall" parent="@style/Widget.AppCompat.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/button_edit</item>
-        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
     <style name="TextViewPrice" parent="@style/Widget.AppCompat.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/price_tag</item>
-        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColor">@color/colorAccent</item>
         <item name="android:clickable">false</item>
     </style>
 
     <style name="TextViewLight" parent="@style/TextAppearance.AppCompat">
-        <item name="android:textColor">@color/textPrimary</item>
+        <item name="android:textColor">@color/colorAccent</item>
     </style>
 
 

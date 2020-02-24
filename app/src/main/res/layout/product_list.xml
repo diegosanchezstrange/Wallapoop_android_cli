@@ -5,31 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@color/textPrimary"
+    android:background="@color/colorAccent50"
     android:layout_marginTop="1dp"
     android:layout_marginBottom="1dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageViewProduct"
-        android:layout_width="84dp"
-        android:layout_height="84dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/image_default"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="1dp"
         android:layout_marginBottom="1dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/image_default"
-        android:src="@drawable/circle_crop"
+        app:civ_border_color="#00FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <TextView
         android:id="@+id/textViewPPrice"
         style="@style/TextViewDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
         android:layout_marginRight="32dp"
         android:text="Price"
@@ -42,9 +42,9 @@
         style="@style/TextViewDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
         android:text="Product"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/imageViewProduct"

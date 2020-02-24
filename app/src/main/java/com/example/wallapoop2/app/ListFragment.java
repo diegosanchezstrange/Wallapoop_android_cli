@@ -98,8 +98,6 @@ public class ListFragment extends Fragment
 
         productsAdapter.setProductOnClick(onProductClick);
 
-
-
         return view;
     }
 
