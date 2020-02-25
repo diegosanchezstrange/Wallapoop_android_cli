@@ -67,30 +67,6 @@ public class ListFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        //List<Product> productList = new ArrayList<Product>();
-        /*{{
-            add(new Product("Perro", null, null, 130, 1));
-            add(new Product("Iphone 8", null, null, 350, 1));
-            add(new Product("PS4", null, "@drawable/psone", 120, 1));
-            add(new Product("Porro", null, null, 1.2f, 1));
-            add(new Product("Usb pen 16GB", null, null, 4.5f, 1));
-            add(new Product("Opel Corsa 1998 TDI", null, null, 2200, 1));
-            add(new Product("Play Station 3", null, "@drawable/psone", 179, 1));
-            add(new Product("Bragas usadas", null, null, 12, 1));
-            add(new Product("Adadas Originales", null, null, 70, 1));
-
-            add(new Product("Perro", null, null, 130, 1));
-            add(new Product("Iphone 8", null, null, 350, 1));
-            add(new Product("PS4", null, "@drawable/psone", 120, 1));
-            add(new Product("Porro", null, null, 1.2f, 1));
-            add(new Product("Usb pen 16GB", null, null, 4.5f, 1));
-            add(new Product("Opel Corsa 1998 TDI", null, null, 2200, 1));
-            add(new Product("Play Station 3", null, "@drawable/psone", 179, 1));
-            add(new Product("Bragas usadas", null, null, 12, 1));
-            add(new Product("Adadas Originales", null, null, 70, 1));
-        }} ;*/
-
-        //List<Product> productList = new ArrayList<Product>();
 
         HashMap<String, String> loginParams = new HashMap<String, String>();
 
@@ -109,7 +85,7 @@ public class ListFragment extends Fragment
                                         String nombre = (String)prodActual.get("NAME");
                                         int precio = (int)prodActual.get("PRICE");
                                         int uploaderId = (int)prodActual.get("PRODUCT_OWNER");
-                                        ListFragment.listaProductos.add(new Product(nombre, null,null,precio,uploaderId));
+                                        ListFragment.listaProductos.add(new Product(nombre, null,0,precio,uploaderId));
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -131,7 +107,6 @@ public class ListFragment extends Fragment
 
         RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
         requestQueue.add(jsonObjectRequest);
-
 
 
         MainActivity.myBottomBar.setVisibility(View.VISIBLE);
