@@ -28,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.wallapoop2.MainActivity;
 import com.example.wallapoop2.R;
 import com.example.wallapoop2.product.Product;
+import com.example.wallapoop2.product.ProductDetailFragment;
 import com.example.wallapoop2.product.RecyclerProductAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -127,7 +128,22 @@ public class ListFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                myNavCtrl.navigate(R.id.actionListToProduct);
+
+                Bundle bundle = new Bundle();
+                bundle.putString("Name","Satisfyer pro");
+                bundle.putString("Image","@drawable/satis.jpg");
+                bundle.putFloat("Price",69.00f);
+                bundle.putString("Description","Solo dos usos, recién lavado");
+
+                ProductDetailFragment fragment = new ProductDetailFragment();
+                fragment.setArguments(bundle);
+
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.nav_host_fragment, fragment)
+                        .commit();
+
+                //myNavCtrl.navigate(R.id.actionListToProduct);
             }
         };
 
