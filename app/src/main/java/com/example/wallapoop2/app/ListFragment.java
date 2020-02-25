@@ -16,14 +16,28 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.wallapoop2.MainActivity;
 import com.example.wallapoop2.R;
 import com.example.wallapoop2.product.Product;
 import com.example.wallapoop2.product.RecyclerProductAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -38,6 +52,10 @@ public class ListFragment extends Fragment
     private RecyclerView recyclerView;
     private RecyclerProductAdapter productsAdapter;
 
+    private String productsURL = "http://192.168.0.16:5001/products";
+
+    public static List<Product> listaProductos = new ArrayList<Product>();
+
     public ListFragment() {
         // Required empty public constructor
     }
@@ -49,8 +67,8 @@ public class ListFragment extends Fragment
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_list, container, false);
 
-        List<Product> productList = new ArrayList<Product>()
-        {{
+        //List<Product> productList = new ArrayList<Product>();
+        /*{{
             add(new Product("Perro", null, null, 130, 1));
             add(new Product("Iphone 8", null, null, 350, 1));
             add(new Product("PS4", null, "@drawable/psone", 120, 1));
@@ -70,7 +88,49 @@ public class ListFragment extends Fragment
             add(new Product("Play Station 3", null, "@drawable/psone", 179, 1));
             add(new Product("Bragas usadas", null, null, 12, 1));
             add(new Product("Adadas Originales", null, null, 70, 1));
-        }} ;
+        }} ;*/
+
+        //List<Product> productList = new ArrayList<Product>();
+
+        HashMap<String, String> loginParams = new HashMap<String, String>();
+
+
+        JsonArrayRequest jsonObjectRequest = new JsonArrayRequest
+                (Request.Method.GET, productsURL, null,
+                        new Response.Listener<JSONArray>()
+                        {
+                            @Override
+                            public void onResponse(JSONArray response)
+                            {
+                                for(int i = 0; i < response.length(); i++)
+                                {
+                                    try {
+                                        JSONObject prodActual = response.getJSONObject(i);
+                                        String nombre = (String)prodActual.get("NAME");
+                                        int precio = (int)prodActual.get("PRICE");
+                                        int uploaderId = (int)prodActual.get("PRODUCT_OWNER");
+                                        ListFragment.listaProductos.add(new Product(nombre, null,null,precio,uploaderId));
+
+                                    } catch (JSONException e) {
+                                        e.printStackTrace();
+                                    }
+
+                                }
+
+                                productsAdapter.notifyDataSetChanged();
+
+                            }
+                        }, new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(getActivity());
+        requestQueue.add(jsonObjectRequest);
 
 
 
@@ -80,7 +140,7 @@ public class ListFragment extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL));
 
-        productsAdapter = new RecyclerProductAdapter( this, productList, this.getContext(), R.layout.product_list);
+        productsAdapter = new RecyclerProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list);
 
         recyclerView.setAdapter(productsAdapter);
 
