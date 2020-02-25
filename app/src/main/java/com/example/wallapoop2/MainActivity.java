@@ -9,6 +9,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -22,6 +23,8 @@ public class MainActivity extends FragmentActivity
 
     public static BottomNavigationView myBottomBar;
     public NavController myNavCtrl;
+
+    public static final Integer GALLERY_REQUEST_CODE = 1;
 
     public boolean sessionON = false;
 
@@ -96,4 +99,5 @@ public class MainActivity extends FragmentActivity
         fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
         fragmentTransaction.commit();
     }
+
 }
