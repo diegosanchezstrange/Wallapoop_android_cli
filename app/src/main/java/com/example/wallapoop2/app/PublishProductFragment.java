@@ -45,7 +45,7 @@ public class PublishProductFragment extends Fragment
         price = view.findViewById(R.id.inputPricePublish);
         desc = view.findViewById(R.id.inputDescPublish);
 
-        image = view.findViewById(R.id.imageViewProfile);
+        image = view.findViewById(R.id.imageViewProductPublish);
 
         image.setOnClickListener(new View.OnClickListener()
         {

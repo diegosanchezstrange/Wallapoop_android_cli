@@ -51,25 +51,25 @@ public class ListFragment extends Fragment
 
         List<Product> productList = new ArrayList<Product>()
         {{
-            add(new Product("Perro", null, null, 130, 1));
-            add(new Product("Iphone 8", null, null, 350, 1));
-            add(new Product("PS4", null, "@drawable/psone", 120, 1));
-            add(new Product("Porro", null, null, 1.2f, 1));
-            add(new Product("Usb pen 16GB", null, null, 4.5f, 1));
-            add(new Product("Opel Corsa 1998 TDI", null, null, 2200, 1));
-            add(new Product("Play Station 3", null, "@drawable/psone", 179, 1));
-            add(new Product("Bragas usadas", null, null, 12, 1));
-            add(new Product("Adadas Originales", null, null, 70, 1));
+            add(new Product("Perro", null, 0, 130, 1));
+            add(new Product("Iphone 8", null, 0, 350, 1));
+            add(new Product("PS4", null, 0, 120, 1));
+            add(new Product("Porro", null, 0, 1.2f, 1));
+            add(new Product("Usb pen 16GB", null, 0, 4.5f, 1));
+            add(new Product("Opel Corsa 1998 TDI", null, 0, 2200, 1));
+            add(new Product("Play Station 3", null, 0, 179, 1));
+            add(new Product("Bragas usadas", null, 0, 12, 1));
+            add(new Product("Adadas Originales", null, 0, 70, 1));
 
-            add(new Product("Perro", null, null, 130, 1));
-            add(new Product("Iphone 8", null, null, 350, 1));
-            add(new Product("PS4", null, "@drawable/psone", 120, 1));
-            add(new Product("Porro", null, null, 1.2f, 1));
-            add(new Product("Usb pen 16GB", null, null, 4.5f, 1));
-            add(new Product("Opel Corsa 1998 TDI", null, null, 2200, 1));
-            add(new Product("Play Station 3", null, "@drawable/psone", 179, 1));
-            add(new Product("Bragas usadas", null, null, 12, 1));
-            add(new Product("Adadas Originales", null, null, 70, 1));
+            add(new Product("Perro", null, 0, 130, 1));
+            add(new Product("Iphone 8", null, 0, 350, 1));
+            add(new Product("PS4", null, 0, 120, 1));
+            add(new Product("Porro", null, 0, 1.2f, 1));
+            add(new Product("Usb pen 16GB", null, 0, 4.5f, 1));
+            add(new Product("Opel Corsa 1998 TDI", null, 0, 2200, 1));
+            add(new Product("Play Station 3", null, 0, 179, 1));
+            add(new Product("Bragas usadas", null, 0, 12, 1));
+            add(new Product("Adadas Originales", null, 0, 70, 1));
         }} ;
 
 
