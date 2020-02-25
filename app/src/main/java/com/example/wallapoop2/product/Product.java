@@ -5,12 +5,12 @@ public class Product
     // Esto es una clase que entra a un Wallapoop y le pide al programador que le fabrique
     // un recyclerView para mostrar la lista de Product en la ventana ppal.
 
-    private String pName, pDescription, pImage;
+    private String pName, pDescription;
     private float pPrice;
-    private int uploaderID; // Creo que podemos llamar al dueño -> uploader a partir de este momento
+    private int  pImage, uploaderID; // Creo que podemos llamar al dueño -> uploader a partir de este momento
 
 
-    public Product(String pName, String pDescription, String pImage, float pPrice, int uploaderID) {
+    public Product(String pName, String pDescription, int pImage, float pPrice, int uploaderID) {
         this.pName = pName;
         this.pDescription = pDescription;
         this.pImage = pImage;
@@ -34,11 +34,11 @@ public class Product
         this.pDescription = pDescription;
     }
 
-    public String getpImage() {
+    public int getpImage() {
         return pImage;
     }
 
-    public void setpImage(String pImage) {
+    public void setpImage(int pImage) {
         this.pImage = pImage;
     }
 

@@ -47,6 +47,7 @@
             app:layout_constraintTop_toBottomOf="@+id/cardView">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputNamePublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColorLink="@color/colorAccent" />
@@ -66,6 +67,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputPName">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPricePublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -84,13 +86,14 @@
             app:layout_constraintTop_toBottomOf="@+id/textInputPPrice">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputDescPublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/buttonPublish"
             style="@style/Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
