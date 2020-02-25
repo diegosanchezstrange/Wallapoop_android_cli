@@ -13,18 +13,21 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
     <style name="OutlinedInputText" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="android:textColorHint">@color/colorAccent50</item>
-        <item name="boxStrokeColor">@color/colorAccent50</item>
+        <item name="boxStrokeColor">@color/colorAccent</item>
         <item name="boxStrokeWidth">2dp</item>
         <item name="counterEnabled">true</item>
         <item name="counterTextAppearance">@color/colorAccent50</item>
         <item name="errorEnabled">true</item>
     </style>
+
 
     <style name="Button" parent="@style/Widget.AppCompat.Button">
         <item name="android:layout_width">wrap_content</item>
@@ -40,6 +43,7 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+
     <style name="TextViewPrice" parent="@style/Widget.AppCompat.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -51,7 +55,6 @@
     <style name="TextViewLight" parent="@style/TextAppearance.AppCompat">
         <item name="android:textColor">@color/colorAccent</item>
     </style>
-
 
     <style name="TextViewDark" parent="@style/TextAppearance.AppCompat">
         <item name="android:textColor">@color/colorPrimary</item>
