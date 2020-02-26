@@ -37,7 +37,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/logout"
                 style="@style/TextViewLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/option2"
                 style="@style/TextViewLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/option3"
                 style="@style/TextViewLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

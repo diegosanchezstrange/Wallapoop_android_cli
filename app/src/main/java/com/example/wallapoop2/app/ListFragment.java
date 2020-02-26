@@ -157,7 +157,7 @@ public class ListFragment extends Fragment
             public void handleOnBackPressed()
             {
 
-                new AlertDialog.Builder(getContext())
+                new AlertDialog.Builder(getContext(), R.style.AlertDialogCustom)
                         .setIcon(R.drawable.ic_poop_passive_aggressive)
                         .setTitle("CERRAR WALLAPOOP")
                         .setMessage("¿Quieres salir de la aplicación?")
