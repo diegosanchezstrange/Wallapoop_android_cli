@@ -170,8 +170,28 @@ public class ListFragment extends Fragment
             @Override
             public void handleOnBackPressed()
             {
+
+                new AlertDialog.Builder(getContext())
+                        .setIcon(R.drawable.ic_poop_passive_aggressive)
+                        .setTitle("CERRAR WALLAPOOP")
+                        .setMessage("¿Quieres salir de la aplicación?")
+                        .setPositiveButton("SALIR", new DialogInterface.OnClickListener()
+                        {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                getActivity().finish();
+                            }
+                        })
+                        .setNegativeButton("QUEDARME", null)
+                        .show();
+
+                /*
+
                 myNavCtrl.navigate(R.id.actionBack);
                 MainActivity.myBottomBar.setVisibility(View.INVISIBLE);
+
+                 */
             }
         };
 
