@@ -32,7 +32,7 @@
     <style name="Button" parent="@style/Widget.AppCompat.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/button_generic</item>
+        <item name="android:background">@drawable/button_generic_clicked</item>
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 

@@ -43,7 +43,7 @@ import java.util.HashMap;
 public class PublishProductFragment extends Fragment
 {
 
-    private String publishURL = "http://192.168.0.16:5001/products";
+    private String publishURL;
     private ImageView image;
     private Bitmap imageBitMap;
 
@@ -57,7 +57,9 @@ public class PublishProductFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_product_publish, container, false);
+        final View view = inflater.inflate(R.layout.fragment_product_publish, container, false);
+
+        publishURL = getString(R.string.server_url) + getString(R.string.server_products);
 
         final TextInputEditText name, price, desc;
 
@@ -89,11 +91,19 @@ public class PublishProductFragment extends Fragment
 
                 Integer product_owner = 1;
 
-                params.put("nombre", name.getText().toString());
-                params.put("descripcion", desc.getText().toString());
-                params.put("precio", price.getText().toString());
-                params.put("product_owner", product_owner.toString());
-                params.put("image", imageToString(imageBitMap));
+                try
+                {
+                    params.put("nombre", name.getText().toString());
+                    params.put("descripcion", desc.getText().toString());
+                    params.put("precio", price.getText().toString());
+                    params.put("product_owner", product_owner.toString());
+                    params.put("image", imageToString(imageBitMap));
+
+                }
+                catch (Exception ex)
+                {
+                    Snackbar.make(view, R.string.snackbar_publish_msg, Snackbar.LENGTH_SHORT).show();
+                }
 
 
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
@@ -103,8 +113,9 @@ public class PublishProductFragment extends Fragment
                                     @Override
                                     public void onResponse(JSONObject response)
                                     {
-                                        try {
-                                            Toast.makeText(getActivity(), response.getString("message"), Toast.LENGTH_LONG);
+                                        try
+                                        {
+                                            Snackbar.make(view, response.getString("message"), Snackbar.LENGTH_LONG).show();
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
@@ -114,7 +125,7 @@ public class PublishProductFragment extends Fragment
                             @Override
                             public void onErrorResponse(VolleyError error)
                             {
-                                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG);
+                                Snackbar.make(view, error.getMessage(), Snackbar.LENGTH_LONG).show();
                             }
                         });
 
@@ -161,6 +172,7 @@ public class PublishProductFragment extends Fragment
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         image.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
         byte[] imgBytes = byteArrayOutputStream.toByteArray();
+
         return Base64.encodeToString(imgBytes, Base64.DEFAULT);
     }
 

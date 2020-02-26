@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
             android:hint="@string/hint_user"
-            app:counterMaxLength="20"
+            app:counterMaxLength="30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:hint="@string/hint_pass"
-            app:counterMaxLength="20"
+            app:counterMaxLength="30"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
