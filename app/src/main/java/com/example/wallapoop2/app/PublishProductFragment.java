@@ -2,6 +2,7 @@ package com.example.wallapoop2.app;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -88,18 +89,19 @@ public class PublishProductFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                // TODO
-                // Recoger el producto y mandarlo al servidor
+
                 HashMap<String, String> params = new HashMap<>();
 
-                Integer product_owner = 1;
+                SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
+
+                String uploader = sharedPref.getString(String.valueOf(R.string.user_id), "0");
 
                 try
                 {
                     params.put("nombre", name.getText().toString());
                     params.put("descripcion", desc.getText().toString());
                     params.put("precio", price.getText().toString());
-                    params.put("product_owner", product_owner.toString());
+                    params.put("product_owner", uploader);
                     params.put("image", imageToString(imageBitMap));
 
                 }
@@ -161,14 +163,12 @@ public class PublishProductFragment extends Fragment
                 case 1:
                     Uri selectedImage = data.getData();
 
-                    // TODO
-                    // Almacenar la foto en la base de datos y obtenerla desde ahí para que sea persistente(?)
-
                     image.setImageURI(selectedImage);
                     try
                     {
                         imageBitMap = MediaStore.Images.Media.getBitmap(this.getActivity().getContentResolver(), selectedImage);
-                    } catch (IOException e)
+                    }
+                    catch (IOException e)
                     {
                         e.printStackTrace();
                     }

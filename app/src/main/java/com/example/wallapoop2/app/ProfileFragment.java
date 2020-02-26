@@ -3,6 +3,7 @@ package com.example.wallapoop2.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -14,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wallapoop2.MainActivity;
@@ -29,6 +31,7 @@ import java.io.InputStream;
 public class ProfileFragment extends Fragment
 {
 
+    private TextView name;
     private ImageView image;
 
     public ProfileFragment() {
@@ -52,6 +55,12 @@ public class ProfileFragment extends Fragment
                 pickFromGallery();
             }
         });
+
+        name = view.findViewById(R.id.tvName);
+
+        SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
+
+        name.setText(sharedPref.getString(String.valueOf(R.string.user_id), "0"));
 
         return view;
     }

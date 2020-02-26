@@ -7,6 +7,9 @@
     <string name="server_login">:5000/login</string>
     <string name="server_products">:5001/products</string>
 
+    <string name="server_token">token</string>
+    <string name="user_id">userID</string>
+
     <string name="hint_user">Usuario</string>
     <string name="hint_pass">Contraseña</string>
     <string name="hint_email">Email</string>

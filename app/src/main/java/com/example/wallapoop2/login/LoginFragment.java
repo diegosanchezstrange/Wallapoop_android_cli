@@ -80,8 +80,8 @@ public class LoginFragment extends Fragment
                                 SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPref.edit();
                                 try {
-                                    editor.putString("token", response.getString("token"));
-                                    editor.putString("userID", response.getString("user_id"));
+                                    editor.putString(String.valueOf(R.string.server_token), response.getString("token"));
+                                    editor.putString(String.valueOf(R.string.user_id), response.getString("user_id"));
                                     editor.commit();
 
                                     Snackbar.make(view, response.toString(), Snackbar.LENGTH_SHORT).show();
