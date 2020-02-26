@@ -68,9 +68,11 @@ public class MainActivity extends FragmentActivity
                         fragment = new ListFragment();
                         break;
 
+                        /*
                     case R.id.navigation_favs:
                         fragment = new ListFragment();
                         break;
+                         */
 
                     case R.id.navigation_publish:
                         fragment = new PublishProductFragment();

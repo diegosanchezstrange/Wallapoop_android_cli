@@ -4,7 +4,9 @@ package com.example.wallapoop2.product;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +16,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.wallapoop2.MainActivity;
 import com.example.wallapoop2.R;
+import com.example.wallapoop2.app.ListFragment;
 
 
 /**
@@ -33,6 +37,8 @@ public class ProductDetailFragment extends Fragment {
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_product_detail, container, false);
+
+        controlOnBackPressed();
 
         Bundle bundle = this.getArguments();
 
@@ -55,4 +61,22 @@ public class ProductDetailFragment extends Fragment {
         return view;
     }
 
+
+    private void controlOnBackPressed()
+    {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */)
+        {
+            @Override
+            public void handleOnBackPressed()
+            {
+                Fragment fragment = new ListFragment();
+
+                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
+                fragmentTransaction.commit();
+            }
+        };
+
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+    }
 }
