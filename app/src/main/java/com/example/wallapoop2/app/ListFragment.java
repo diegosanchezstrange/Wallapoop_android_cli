@@ -1,8 +1,12 @@
 package com.example.wallapoop2.app;
 
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
+import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
@@ -41,6 +45,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -50,6 +55,7 @@ public class ListFragment extends Fragment
 {
 
     private NavController myNavCtrl;
+    private BottomNavigationView bottomBar;
 
     private RecyclerView recyclerView;
     private RecyclerProductAdapter productsAdapter;
@@ -68,6 +74,8 @@ public class ListFragment extends Fragment
     {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_list, container, false);
+
+        controlOnBackPressed();
 
         productsURL = getString(R.string.server_url) + getString(R.string.server_products);
 
@@ -132,7 +140,6 @@ public class ListFragment extends Fragment
             public void onClick(View v)
             {
 
-
                 Bundle bundle = new Bundle();
                 bundle.putString("Name","Satisfyer pro");
                 bundle.putString("Image","satis.jpg");
@@ -157,8 +164,18 @@ public class ListFragment extends Fragment
     }
 
 
+    private void controlOnBackPressed()
+    {
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */)
+        {
+            @Override
+            public void handleOnBackPressed()
+            {
+                myNavCtrl.navigate(R.id.actionBack);
+                MainActivity.myBottomBar.setVisibility(View.INVISIBLE);
+            }
+        };
 
-
-
-
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+    }
 }
