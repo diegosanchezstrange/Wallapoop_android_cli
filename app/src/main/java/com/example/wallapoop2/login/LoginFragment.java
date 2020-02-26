@@ -1,6 +1,7 @@
 package com.example.wallapoop2.login;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -23,6 +24,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.wallapoop2.R;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -61,7 +63,6 @@ public class LoginFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                //myNavCtrl.navigate(R.id.actionLoginToSplash);
                 //Get the username and password and pass it as params
                 HashMap<String, String> loginParams = new HashMap<String, String>();
 
@@ -76,7 +77,19 @@ public class LoginFragment extends Fragment
                             @Override
                             public void onResponse(JSONObject response)
                             {
-                                Snackbar.make(view, response.toString(), Snackbar.LENGTH_SHORT).show();
+                                SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                try {
+                                    editor.putString("token", response.getString("token"));
+                                    editor.putString("userID", response.getString("user_id"));
+                                    Snackbar.make(view, response.toString(), Snackbar.LENGTH_SHORT).show();
+
+                                    myNavCtrl.navigate(R.id.actionLoginToSplash);
+
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
                             }
                         }, new Response.ErrorListener()
                         {
