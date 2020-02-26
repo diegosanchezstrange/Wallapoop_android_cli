@@ -54,6 +54,8 @@ public class ProfileFragment extends Fragment
     private RecyclerView recyclerView;
     private RecyclerUserProductAdapter productsAdapter;
 
+    private SharedPreferences sharedPref;
+
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -82,7 +84,9 @@ public class ProfileFragment extends Fragment
 
         name = view.findViewById(R.id.tvName);
 
-        name.setText(MainActivity.sharedPref.getString("userName", "0"));
+        sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
+
+        name.setText(sharedPref.getString("userName", "0"));
 
         setupRecyclerView(view);
 
@@ -143,7 +147,7 @@ public class ProfileFragment extends Fragment
 
         for(Product p : ListFragment.listaProductos)
         {
-            String uploader = MainActivity.sharedPref.getString("userID", "0");
+            String uploader = sharedPref.getString("userID", "0");
 
            if (p.getUploaderID() == Integer.parseInt(uploader))
            {
