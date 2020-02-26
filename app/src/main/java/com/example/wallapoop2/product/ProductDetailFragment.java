@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import com.example.wallapoop2.MainActivity;
 import com.example.wallapoop2.R;
 import com.example.wallapoop2.app.ListFragment;
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -54,6 +56,7 @@ public class ProductDetailFragment extends Fragment {
         description.setText(actual.getpDescription());
         price.setText(String.valueOf(actual.getpPrice()));
 
+        Picasso.get().load("http://diegosanstr.ddns.net:5001/img/" + actual.getpName().replace(" ", "_") + ".jpg").resize(120,120).centerCrop().into(image);
 
         //Context ctx = view.getContext();
         //int id = ctx.getResources().getIdentifier(bundle.getString("Image"), "drawable", ctx.getPackageName());
@@ -70,11 +73,7 @@ public class ProductDetailFragment extends Fragment {
             @Override
             public void handleOnBackPressed()
             {
-                Fragment fragment = new ListFragment();
-
-                FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
-                fragmentTransaction.commit();
+                Navigation.findNavController(getActivity(), R.id.nav_host_fragment).navigate(R.id.action_productDetailFragment_to_listFragment);
             }
         };
 

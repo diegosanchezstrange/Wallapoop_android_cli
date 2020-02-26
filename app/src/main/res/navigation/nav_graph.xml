@@ -43,9 +43,6 @@
         <action
             android:id="@+id/actionListToProduct"
             app:destination="@id/productDetailFragment" />
-        <action
-            android:id="@+id/actionBack"
-            app:destination="@id/start" />
     </fragment>
     <fragment
         android:id="@+id/start"
@@ -66,7 +63,11 @@
         android:id="@+id/productDetailFragment"
         android:name="com.example.wallapoop2.product.ProductDetailFragment"
         android:label="fragment_product_detail"
-        tools:layout="@layout/fragment_product_detail" />
+        tools:layout="@layout/fragment_product_detail" >
+        <action
+            android:id="@+id/action_productDetailFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.wallapoop2.app.ProfileFragment"

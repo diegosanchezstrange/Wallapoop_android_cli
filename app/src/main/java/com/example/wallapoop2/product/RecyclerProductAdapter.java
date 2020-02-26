@@ -1,6 +1,10 @@
 package com.example.wallapoop2.product;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +16,14 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.android.volley.toolbox.ImageLoader;
 import com.example.wallapoop2.app.ListFragment;
 import com.example.wallapoop2.R;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
 
 
@@ -72,6 +81,8 @@ public class RecyclerProductAdapter extends RecyclerView.Adapter<RecyclerProduct
 
         holder.tvName.setText(holder.product.getpName());
         holder.tvPrice.setText(String.valueOf(holder.product.getpPrice()));
+
+        Picasso.get().load("http://diegosanstr.ddns.net:5001/img/" + holder.product.getpName().replace(" ", "_") + ".jpg").resize(50,50).centerCrop().into(holder.img);
     }
 
     @Override

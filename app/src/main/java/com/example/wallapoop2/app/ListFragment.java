@@ -97,9 +97,10 @@ public class ListFragment extends Fragment
                                     try {
                                         JSONObject prodActual = response.getJSONObject(i);
                                         String nombre = (String)prodActual.get("NAME");
+                                        String descripcion = (String)prodActual.get("DESCRIPTION");
                                         int precio = (int)prodActual.get("PRICE");
                                         int uploaderId = (int)prodActual.get("PRODUCT_OWNER");
-                                        ListFragment.listaProductos.add(new Product(nombre, null, null, precio, uploaderId));
+                                        ListFragment.listaProductos.add(new Product(nombre, descripcion, null, precio, uploaderId));
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -183,12 +184,13 @@ public class ListFragment extends Fragment
             @Override
             public void setClick(int abc) {
                 ListFragment.lastItemClicked = abc;
-                myNavCtrl.navigate(R.id.actionListToProduct);
+                if(myNavCtrl.getCurrentDestination().getId() == R.id.listFragment)
+                {
+                    myNavCtrl.navigate(R.id.actionListToProduct);
+                }
             }
         };
 
         productsAdapter = new RecyclerProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list, onClickInterface);
-
-        recyclerView.setAdapter(productsAdapter);
     }
 }
