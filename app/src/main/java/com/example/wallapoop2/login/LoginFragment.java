@@ -82,6 +82,7 @@ public class LoginFragment extends Fragment
                                 try
                                 {
                                     editor.putString("token", response.getString("token"));
+                                    editor.putString("userName", response.getString("user_name"));
                                     editor.putString("userID", response.getString("user_id"));
                                     editor.commit();
 

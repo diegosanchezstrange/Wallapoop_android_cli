@@ -192,5 +192,6 @@ public class ListFragment extends Fragment
         };
 
         productsAdapter = new RecyclerProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list, onClickInterface);
+        recyclerView.setAdapter(productsAdapter);
     }
 }

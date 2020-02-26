@@ -82,9 +82,7 @@ public class ProfileFragment extends Fragment
 
         name = view.findViewById(R.id.tvName);
 
-        SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
-
-        name.setText(sharedPref.getString("userID", "0"));
+        name.setText(MainActivity.sharedPref.getString("userName", "0"));
 
         setupRecyclerView(view);
 
@@ -145,7 +143,9 @@ public class ProfileFragment extends Fragment
 
         for(Product p : ListFragment.listaProductos)
         {
-           if (p.getUploaderID() == uploader)
+            String uploader = MainActivity.sharedPref.getString("userID", "0");
+
+           if (p.getUploaderID() == Integer.parseInt(uploader))
            {
                listaProductos.add(p);
            }

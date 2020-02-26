@@ -10,6 +10,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -26,11 +27,15 @@ public class MainActivity extends FragmentActivity
 
     public static final Integer GALLERY_REQUEST_CODE = 1;
 
+    public static SharedPreferences sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
 
         myBottomBar = this.findViewById(R.id.bottom_nav);
         myNavCtrl = Navigation.findNavController(this, R.id.nav_host_fragment);
