@@ -125,21 +125,8 @@ public class ListFragment extends Fragment
 
         MainActivity.myBottomBar.setVisibility(View.VISIBLE);
 
-        recyclerView = view.findViewById(R.id.recyclerProducts);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL));
 
-        onClickInterface onClickInterface = new onClickInterface() {
-            @Override
-            public void setClick(int abc) {
-                ListFragment.lastItemClicked = abc;
-                myNavCtrl.navigate(R.id.actionListToProduct);
-            }
-        };
-
-        productsAdapter = new RecyclerProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list, onClickInterface);
-
-        recyclerView.setAdapter(productsAdapter);
+        setupRecyclerView(view);
 
 
         myNavCtrl = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
@@ -182,5 +169,26 @@ public class ListFragment extends Fragment
         };
 
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+    }
+
+
+    private void setupRecyclerView(View v)
+    {
+
+        recyclerView = v.findViewById(R.id.recyclerProducts);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL));
+
+        onClickInterface onClickInterface = new onClickInterface() {
+            @Override
+            public void setClick(int abc) {
+                ListFragment.lastItemClicked = abc;
+                myNavCtrl.navigate(R.id.actionListToProduct);
+            }
+        };
+
+        productsAdapter = new RecyclerProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list, onClickInterface);
+
+        recyclerView.setAdapter(productsAdapter);
     }
 }

@@ -10,6 +10,11 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +25,15 @@ import android.widget.Toast;
 
 import com.example.wallapoop2.MainActivity;
 import com.example.wallapoop2.R;
+import com.example.wallapoop2.product.Product;
+import com.example.wallapoop2.product.RecyclerProductAdapter;
+import com.example.wallapoop2.product.RecyclerUserProductAdapter;
+import com.example.wallapoop2.product.onClickInterface;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -31,8 +42,17 @@ import java.io.InputStream;
 public class ProfileFragment extends Fragment
 {
 
+    private NavController myNavCtrl;
+
+    public static List<Product> listaProductos = new ArrayList<Product>();
+
+    public static int lastItemClicked;
+
     private TextView name;
     private ImageView image;
+
+    private RecyclerView recyclerView;
+    private RecyclerUserProductAdapter productsAdapter;
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -44,6 +64,10 @@ public class ProfileFragment extends Fragment
     {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        listaProductos.clear();
+
+        myNavCtrl = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
         image = view.findViewById(R.id.imageViewProfile);
 
@@ -61,6 +85,8 @@ public class ProfileFragment extends Fragment
         SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
 
         name.setText(sharedPref.getString("userID", "0"));
+
+        setupRecyclerView(view);
 
         return view;
     }
@@ -100,4 +126,34 @@ public class ProfileFragment extends Fragment
         startActivityForResult(intent, MainActivity.GALLERY_REQUEST_CODE);
     }
 
+
+    private void setupRecyclerView(View v)
+    {
+
+        recyclerView = v.findViewById(R.id.recyclerUserProducts);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL));
+
+
+        onClickInterface onClickInterface = new onClickInterface() {
+            @Override
+            public void setClick(int abc) {
+                ProfileFragment.lastItemClicked = abc;
+                myNavCtrl.navigate(R.id.actionListToProduct);
+            }
+        };
+
+        for(Product p : ListFragment.listaProductos)
+        {
+           if (p.getUploaderID() == uploader)
+           {
+               listaProductos.add(p);
+           }
+        }
+
+
+        productsAdapter = new RecyclerUserProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list, onClickInterface);
+
+        recyclerView.setAdapter(productsAdapter);
+    }
 }

@@ -26,8 +26,6 @@ public class MainActivity extends FragmentActivity
 
     public static final Integer GALLERY_REQUEST_CODE = 1;
 
-    public boolean sessionON = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {

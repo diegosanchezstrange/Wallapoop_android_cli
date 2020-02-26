@@ -41,7 +41,9 @@ public class SplashFragment extends Fragment
             @Override
             public void run() {
                 // This method will be executed once the timer is over
+
                 myNavController.navigate(R.id.actionLoadListFragment);
+
             }
         }, 1000);
 
