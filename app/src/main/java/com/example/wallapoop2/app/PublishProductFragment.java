@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import com.example.wallapoop2.MainActivity;
 import com.example.wallapoop2.R;
 import com.example.wallapoop2.product.Product;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 
@@ -37,7 +38,7 @@ public class PublishProductFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_publish_product, container, false);
+        View view = inflater.inflate(R.layout.fragment_product_publish, container, false);
 
         final TextInputEditText name, price, desc;
 
@@ -112,14 +113,26 @@ public class PublishProductFragment extends Fragment
 
     public Product publishProduct(TextInputEditText name, TextInputEditText price, TextInputEditText desc, ImageView img)
     {
-        String productName, productDescription, productImg;
-        Float productPrice;
+        String productName = null, productDescription = null;
+        Integer productImg = null;
+        Float productPrice = null;
 
-        productName = name.getText().toString();
-        productPrice = Float.parseFloat(price.getText().toString());
-        productDescription = desc.getText().toString();
+        try
+        {
+            productName = name.getText().toString();
+            productPrice = Float.parseFloat(price.getText().toString());
+            productDescription = desc.getText().toString();
+            productImg = 0;
 
-        return new Product(productName, productDescription, 1, productPrice, 1);
+            return new Product(productName, productDescription, 1, productPrice, 1);
+        }
+        catch (Exception ex)
+        {
+            View contextView = this.getView();
+            Snackbar.make(contextView, R.string.snackbar_publish_msg, Snackbar.LENGTH_SHORT).show();
+        }
+
+        return null;
     }
 
 }

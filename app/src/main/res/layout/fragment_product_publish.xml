@@ -50,7 +50,8 @@
                 android:id="@+id/inputNamePublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorLink="@color/colorAccent" />
+                android:textColorLink="@color/colorAccent"
+                android:inputType="text"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -69,7 +70,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputPricePublish"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,7 +90,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputDescPublish"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputPName"
+            android:id="@+id/textInputSignEmail"
             style="@style/OutlinedInputText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -24,13 +24,15 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userSigninEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputPDescription"
+            android:id="@+id/textInputSignUser"
             style="@style/OutlinedInputText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -39,16 +41,18 @@
             app:counterMaxLength="20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputPName">
+            app:layout_constraintTop_toBottomOf="@+id/textInputSignEmail">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userSigninName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textAutoComplete"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputPPrice"
+            android:id="@+id/textInputSignPass"
             style="@style/OutlinedInputText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -57,11 +61,13 @@
             app:counterMaxLength="20"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputPDescription">
+            app:layout_constraintTop_toBottomOf="@+id/textInputSignUser">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userSigninPasswd"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 

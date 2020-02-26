@@ -21,6 +21,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.wallapoop2.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONObject;
 
@@ -44,14 +45,15 @@ public class LoginFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_login, container, false);
+        final View view = inflater.inflate(R.layout.fragment_login, container, false);
+
 
         myNavCtrl = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
-        Button loginButton = v.findViewById(R.id.buttonLogging);
+        Button loginButton = view.findViewById(R.id.buttonLogging);
 
-        final EditText name = v.findViewById(R.id.userLoginName);
-        final EditText passwd = v.findViewById(R.id.userLoginPasswd);
+        final EditText name = view.findViewById(R.id.userLoginName);
+        final EditText passwd = view.findViewById(R.id.userLoginPasswd);
 
         loginButton.setOnClickListener(new View.OnClickListener()
         {
@@ -73,14 +75,14 @@ public class LoginFragment extends Fragment
                             @Override
                             public void onResponse(JSONObject response)
                             {
-                                Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_LONG).show();
+                                Snackbar.make(view, response.toString(), Snackbar.LENGTH_SHORT).show();
                             }
                         }, new Response.ErrorListener()
                         {
                             @Override
                             public void onErrorResponse(VolleyError error)
                             {
-                                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+                                Snackbar.make(view, error.getMessage(), Snackbar.LENGTH_SHORT).show();
                             }
                         });
 
@@ -89,7 +91,7 @@ public class LoginFragment extends Fragment
             }
         });
 
-        return v;
+        return view;
     }
 
 }

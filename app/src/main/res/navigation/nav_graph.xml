@@ -78,6 +78,6 @@
         android:id="@+id/addingProductFragment"
         android:name="com.example.wallapoop2.app.PublishProductFragment"
         android:label="fragment_adding_product"
-        tools:layout="@layout/fragment_publish_product" />
+        tools:layout="@layout/fragment_product_publish" />
 
 </navigation>

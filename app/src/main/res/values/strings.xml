@@ -10,6 +10,8 @@
     <string name="hint_product_price">Precio</string>
     <string name="hint_product_desc">Descripción</string>
 
+    <string name="snackbar_publish_msg">Es necesario rellenar los campos</string>
+
 
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
