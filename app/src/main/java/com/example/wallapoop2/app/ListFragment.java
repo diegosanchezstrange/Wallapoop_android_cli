@@ -34,6 +34,7 @@ import com.example.wallapoop2.R;
 import com.example.wallapoop2.product.Product;
 import com.example.wallapoop2.product.ProductDetailFragment;
 import com.example.wallapoop2.product.RecyclerProductAdapter;
+import com.example.wallapoop2.product.onClickInterface;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -60,6 +61,8 @@ public class ListFragment extends Fragment
     private RecyclerProductAdapter productsAdapter;
 
     private String productsURL;
+
+    public static int lastItemClicked;
 
     public static List<Product> listaProductos = new ArrayList<Product>();
 
@@ -126,38 +129,21 @@ public class ListFragment extends Fragment
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.HORIZONTAL));
 
-        productsAdapter = new RecyclerProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list);
+        onClickInterface onClickInterface = new onClickInterface() {
+            @Override
+            public void setClick(int abc) {
+                ListFragment.lastItemClicked = abc;
+                myNavCtrl.navigate(R.id.actionListToProduct);
+            }
+        };
+
+        productsAdapter = new RecyclerProductAdapter( this, listaProductos, this.getContext(), R.layout.product_list, onClickInterface);
 
         recyclerView.setAdapter(productsAdapter);
 
 
         myNavCtrl = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 
-        View.OnClickListener onProductClick = new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-
-                Bundle bundle = new Bundle();
-                bundle.putString("Name","Satisfyer pro");
-                bundle.putString("Image","satis.jpg");
-                bundle.putString("Price","69.00");
-                bundle.putString("Description","Solo dos usos, recién lavado");
-
-                ProductDetailFragment fragment = new ProductDetailFragment();
-                fragment.setArguments(bundle);
-
-                getFragmentManager()
-                        .beginTransaction()
-                        .replace(R.id.nav_host_fragment, fragment)
-                        .commit();
-
-                //myNavCtrl.navigate(R.id.actionListToProduct);
-            }
-        };
-
-        productsAdapter.setProductOnClick(onProductClick);
 
         return view;
     }

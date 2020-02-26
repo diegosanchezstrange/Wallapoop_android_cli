@@ -24,13 +24,15 @@ public class RecyclerProductAdapter extends RecyclerView.Adapter<RecyclerProduct
     private Context ctx;
     private int resID;
     private ListFragment fragment;
+    private onClickInterface onClickInterface;
 
-    public RecyclerProductAdapter(ListFragment fragment, List<Product> products, Context ctx, int resID)
+    public RecyclerProductAdapter(ListFragment fragment, List<Product> products, Context ctx, int resID, onClickInterface onClickInterface)
     {
         this.fragment = fragment;
         this.products = products;
         this.ctx = ctx;
         this.resID = resID;
+        this.onClickInterface = onClickInterface;
     }
 
 
@@ -52,15 +54,21 @@ public class RecyclerProductAdapter extends RecyclerView.Adapter<RecyclerProduct
         }
 
         view.setOnLongClickListener(this.productOnLongClick);
-        view.setOnClickListener(this.productOnClick);
 
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductsHolder holder, int position)
+    public void onBindViewHolder(@NonNull ProductsHolder holder, final int position)
     {
         holder.product = this.products.get(position);
+
+        holder.v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onClickInterface.setClick(position);
+            }
+        });
 
         holder.tvName.setText(holder.product.getpName());
         holder.tvPrice.setText(String.valueOf(holder.product.getpPrice()));

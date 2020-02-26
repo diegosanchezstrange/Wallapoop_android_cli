@@ -40,7 +40,7 @@ public class ProductDetailFragment extends Fragment {
 
         controlOnBackPressed();
 
-        Bundle bundle = this.getArguments();
+        Product actual = ListFragment.listaProductos.get(ListFragment.lastItemClicked);
 
         TextView name, description, price;
         ImageView image;
@@ -50,13 +50,14 @@ public class ProductDetailFragment extends Fragment {
         price = view.findViewById(R.id.textDetailPrice);
         image = view.findViewById(R.id.imageViewProductDetail);
 
-        name.setText(bundle.getString("Name"));
-        description.setText(bundle.getString("Description"));
-        price.setText(bundle.getString("Price"));
+        name.setText(actual.getpName());
+        description.setText(actual.getpDescription());
+        price.setText(String.valueOf(actual.getpPrice()));
 
-        Context ctx = view.getContext();
-        int id = ctx.getResources().getIdentifier(bundle.getString("Image"), "drawable", ctx.getPackageName());
-        image.setImageResource(id);
+
+        //Context ctx = view.getContext();
+        //int id = ctx.getResources().getIdentifier(bundle.getString("Image"), "drawable", ctx.getPackageName());
+        //image.setImageResource(id);
 
         return view;
     }
