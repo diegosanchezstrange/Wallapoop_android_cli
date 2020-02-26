@@ -2,6 +2,11 @@
     <string name="app_name">Wallapoop</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="server_url">http://diegosanstr.ddns.net</string>
+    <string name="server_login">:5000/login</string>
+    <string name="server_products">:5001/products</string>
+
     <string name="hint_user">Usuario</string>
     <string name="hint_pass">Contraseña</string>
     <string name="hint_email">Email</string>

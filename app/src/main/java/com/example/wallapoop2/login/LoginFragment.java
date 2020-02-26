@@ -35,7 +35,7 @@ public class LoginFragment extends Fragment
 {
 
     private NavController myNavCtrl;
-    private String loginURL = "http://192.168.0.16:5000/login";
+    private String loginURL;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -47,6 +47,7 @@ public class LoginFragment extends Fragment
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_login, container, false);
 
+        loginURL = getString(R.string.server_url) + getString(R.string.server_login);
 
         myNavCtrl = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
 

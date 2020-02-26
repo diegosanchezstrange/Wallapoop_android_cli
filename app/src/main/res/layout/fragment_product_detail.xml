@@ -49,7 +49,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvPrice"
+            android:id="@+id/textDetailPrice"
             style="@style/TextViewPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -68,7 +68,7 @@
             android:layout_marginLeft="32dp"
             android:layout_marginTop="372dp"
             android:layout_marginRight="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="64dp"
             android:background="@color/colorAccent50"
             android:src="@drawable/empty_container"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -77,20 +77,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvDesc"
+            android:id="@+id/textDetailDescription"
             style="@style/TextViewLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:text="Descripción"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="@+id/emptyContainer"
-            app:layout_constraintTop_toBottomOf="@+id/tvName" />
+            app:layout_constraintTop_toBottomOf="@+id/textDetailName" />
 
         <TextView
-            android:id="@+id/tvName"
+            android:id="@+id/textDetailName"
             style="@style/TextViewLight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

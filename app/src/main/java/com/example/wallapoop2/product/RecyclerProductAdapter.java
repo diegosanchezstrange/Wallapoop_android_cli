@@ -85,8 +85,9 @@ public class RecyclerProductAdapter extends RecyclerView.Adapter<RecyclerProduct
 
             this.v = itemView;
 
-            this.tvName = itemView.findViewById(R.id.textViewPName);
-            this.tvPrice = itemView.findViewById(R.id.textViewPPrice);
+            this.img = itemView.findViewById(R.id.imageViewProductList);
+            this.tvName = itemView.findViewById(R.id.productListName);
+            this.tvPrice = itemView.findViewById(R.id.productListPrice);
         }
     }
 

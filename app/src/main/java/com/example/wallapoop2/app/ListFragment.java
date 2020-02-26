@@ -31,6 +31,7 @@ import com.example.wallapoop2.product.Product;
 import com.example.wallapoop2.product.ProductDetailFragment;
 import com.example.wallapoop2.product.RecyclerProductAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,7 +54,7 @@ public class ListFragment extends Fragment
     private RecyclerView recyclerView;
     private RecyclerProductAdapter productsAdapter;
 
-    private String productsURL = "http://192.168.0.16:5001/products";
+    private String productsURL;
 
     public static List<Product> listaProductos = new ArrayList<Product>();
 
@@ -66,8 +67,9 @@ public class ListFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_list, container, false);
+        final View view = inflater.inflate(R.layout.fragment_list, container, false);
 
+        productsURL = getString(R.string.server_url) + getString(R.string.server_products);
 
         HashMap<String, String> loginParams = new HashMap<String, String>();
 
@@ -86,7 +88,7 @@ public class ListFragment extends Fragment
                                         String nombre = (String)prodActual.get("NAME");
                                         int precio = (int)prodActual.get("PRICE");
                                         int uploaderId = (int)prodActual.get("PRODUCT_OWNER");
-                                        ListFragment.listaProductos.add(new Product(nombre, null,0,precio,uploaderId));
+                                        ListFragment.listaProductos.add(new Product(nombre, null, null, precio, uploaderId));
 
                                     } catch (JSONException e) {
                                         e.printStackTrace();
@@ -102,7 +104,7 @@ public class ListFragment extends Fragment
                     @Override
                     public void onErrorResponse(VolleyError error)
                     {
-                        Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+                        Snackbar.make(view, error.getMessage(), Snackbar.LENGTH_SHORT).show();
                     }
                 });
 
@@ -129,10 +131,11 @@ public class ListFragment extends Fragment
             public void onClick(View v)
             {
 
+
                 Bundle bundle = new Bundle();
                 bundle.putString("Name","Satisfyer pro");
-                bundle.putString("Image","@drawable/satis.jpg");
-                bundle.putFloat("Price",69.00f);
+                bundle.putString("Image","satis.jpg");
+                bundle.putString("Price","69.00");
                 bundle.putString("Description","Solo dos usos, recién lavado");
 
                 ProductDetailFragment fragment = new ProductDetailFragment();

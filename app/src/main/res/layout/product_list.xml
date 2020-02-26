@@ -10,7 +10,7 @@
     android:layout_marginBottom="1dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageViewPublishProduct"
+        android:id="@+id/imageViewProductList"
         android:layout_width="96dp"
         android:layout_height="96dp"
         android:layout_marginStart="8dp"
@@ -25,7 +25,7 @@
 
 
     <TextView
-        android:id="@+id/textViewPName"
+        android:id="@+id/productListName"
         style="@style/TextViewLight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,12 +34,12 @@
         android:layout_marginTop="16dp"
         android:text="Product"
         android:textSize="18sp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPublishProduct"
+        app:layout_constraintStart_toEndOf="@+id/imageViewProductList"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
-        android:id="@+id/textViewPPrice"
+        android:id="@+id/productListPrice"
         style="@style/TextViewDark"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
