@@ -58,6 +58,9 @@
         <action
             android:id="@+id/actionSigninFragment"
             app:destination="@id/signinFragment" />
+        <action
+            android:id="@+id/action_start_to_splashFragment"
+            app:destination="@id/splashFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailFragment"
