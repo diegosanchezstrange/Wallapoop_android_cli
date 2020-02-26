@@ -79,7 +79,8 @@ public class LoginFragment extends Fragment
                             {
                                 SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
                                 SharedPreferences.Editor editor = sharedPref.edit();
-                                try {
+                                try
+                                {
                                     editor.putString("token", response.getString("token"));
                                     editor.putString("userID", response.getString("user_id"));
                                     editor.commit();
@@ -88,7 +89,9 @@ public class LoginFragment extends Fragment
 
                                     myNavCtrl.navigate(R.id.actionLoginToSplash);
 
-                                } catch (JSONException e) {
+                                }
+                                catch (JSONException e)
+                                {
                                     e.printStackTrace();
                                 }
 
