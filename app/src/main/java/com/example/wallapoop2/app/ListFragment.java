@@ -55,7 +55,6 @@ public class ListFragment extends Fragment
 {
 
     private NavController myNavCtrl;
-    private BottomNavigationView bottomBar;
 
     private RecyclerView recyclerView;
     private RecyclerProductAdapter productsAdapter;

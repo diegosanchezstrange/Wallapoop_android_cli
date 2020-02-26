@@ -93,7 +93,7 @@ public class MainActivity extends FragmentActivity
     }
 
 
-    private void replaceFragment(Fragment fragment)
+    public void replaceFragment(Fragment fragment)
     {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.nav_host_fragment, fragment);

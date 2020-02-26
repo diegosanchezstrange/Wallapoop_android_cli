@@ -7,6 +7,9 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
 import android.util.Base64;
@@ -116,7 +119,15 @@ public class PublishProductFragment extends Fragment
                                         try
                                         {
                                             Snackbar.make(view, response.getString("message"), Snackbar.LENGTH_LONG).show();
-                                        } catch (JSONException e) {
+
+                                            Fragment fragment = new ListFragment();
+
+                                            FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                                            fragmentTransaction.replace(R.id.nav_host_fragment, fragment);
+                                            fragmentTransaction.commit();
+                                        }
+                                        catch (JSONException e)
+                                        {
                                             e.printStackTrace();
                                         }
                                     }

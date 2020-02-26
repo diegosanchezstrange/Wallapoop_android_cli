@@ -35,7 +35,8 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputPName"
+
+            android:id="@+id/textInputLayout5"
             style="@style/OutlinedInputText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -50,13 +51,14 @@
                 android:id="@+id/inputNamePublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColorLink="@color/colorAccent"
-                android:inputType="text"/>
+                android:inputType="text"
+                android:textColorLink="@color/colorAccent" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputPPrice"
+
+            android:id="@+id/textInputLayout6"
             style="@style/OutlinedInputText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -65,18 +67,19 @@
             app:counterEnabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputPName">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputPricePublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"/>
+                android:inputType="numberDecimal" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputPDescription"
+
+            android:id="@+id/textInputLayout3"
             style="@style/OutlinedInputText"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -85,13 +88,13 @@
             app:counterMaxLength="256"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputPPrice">
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputDescPublish"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textMultiLine"/>
+                android:inputType="textMultiLine" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,7 +108,7 @@
             android:text="PUBLICAR"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textInputPDescription" />
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
