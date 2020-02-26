@@ -82,6 +82,8 @@ public class LoginFragment extends Fragment
                                 try {
                                     editor.putString("token", response.getString("token"));
                                     editor.putString("userID", response.getString("user_id"));
+                                    editor.commit();
+
                                     Snackbar.make(view, response.toString(), Snackbar.LENGTH_SHORT).show();
 
                                     myNavCtrl.navigate(R.id.actionLoginToSplash);
