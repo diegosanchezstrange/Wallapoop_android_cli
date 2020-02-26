@@ -73,6 +73,7 @@ public class ListFragment extends Fragment
 
         HashMap<String, String> loginParams = new HashMap<String, String>();
 
+        listaProductos.clear();
 
         JsonArrayRequest jsonObjectRequest = new JsonArrayRequest
                 (Request.Method.GET, productsURL, null,
