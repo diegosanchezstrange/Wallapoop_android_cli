@@ -177,29 +177,4 @@ public class PublishProductFragment extends Fragment
         startActivityForResult(intent, MainActivity.GALLERY_REQUEST_CODE);
     }
 
-
-    public Product publishProduct(TextInputEditText name, TextInputEditText price, TextInputEditText desc, ImageView img)
-    {
-        String productName = null, productDescription = null;
-        Integer productImg = null;
-        Float productPrice = null;
-
-        try
-        {
-            productName = name.getText().toString();
-            productPrice = Float.parseFloat(price.getText().toString());
-            productDescription = desc.getText().toString();
-            productImg = 0;
-
-            return new Product(productName, productDescription, 1, productPrice, 1);
-        }
-        catch (Exception ex)
-        {
-            View contextView = this.getView();
-            Snackbar.make(contextView, R.string.snackbar_publish_msg, Snackbar.LENGTH_SHORT).show();
-        }
-
-        return null;
-    }
-
 }
