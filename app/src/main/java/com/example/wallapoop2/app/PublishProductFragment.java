@@ -94,7 +94,7 @@ public class PublishProductFragment extends Fragment
 
                 SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
 
-                String uploader = sharedPref.getString(String.valueOf(R.string.user_id), "0");
+                String uploader = sharedPref.getString("userID", "0");
 
                 try
                 {

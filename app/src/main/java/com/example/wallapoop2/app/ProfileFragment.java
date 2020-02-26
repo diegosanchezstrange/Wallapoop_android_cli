@@ -60,7 +60,7 @@ public class ProfileFragment extends Fragment
 
         SharedPreferences sharedPref = getActivity().getPreferences(getActivity().MODE_PRIVATE);
 
-        name.setText(sharedPref.getString(String.valueOf(R.string.user_id), "0"));
+        name.setText(sharedPref.getString("userID", "0"));
 
         return view;
     }
