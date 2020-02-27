@@ -56,7 +56,7 @@ public class ProductDetailFragment extends Fragment {
         description.setText(actual.getpDescription());
         price.setText(String.valueOf(actual.getpPrice()) + " €");
 
-        Picasso.get().load("http://diegosanstr.ddns.net:5001/img/" + actual.getpName().replace(" ", "_") + ".jpg").resize(120,120).centerCrop().into(image);
+        Picasso.get().load("http://diegosanstr.ddns.net:5001/img/" + actual.getpName().replace(" ", "_") + ".jpg").resize(256,256).centerCrop().into(image);
 
         //Context ctx = view.getContext();
         //int id = ctx.getResources().getIdentifier(bundle.getString("Image"), "drawable", ctx.getPackageName());

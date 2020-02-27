@@ -64,13 +64,6 @@ public class RecyclerUserProductAdapter extends RecyclerView.Adapter<RecyclerUse
     {
         holder.product = this.products.get(position);
 
-        holder.v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onClickInterface.setClick(position);
-            }
-        });
-
         holder.tvName.setText(holder.product.getpName());
         holder.tvPrice.setText(String.valueOf(holder.product.getpPrice()) + " €");
 
