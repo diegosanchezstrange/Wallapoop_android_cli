@@ -54,7 +54,7 @@ public class ProductDetailFragment extends Fragment {
 
         name.setText(actual.getpName());
         description.setText(actual.getpDescription());
-        price.setText(String.valueOf(actual.getpPrice()));
+        price.setText(String.valueOf(actual.getpPrice()) + " €");
 
         Picasso.get().load("http://diegosanstr.ddns.net:5001/img/" + actual.getpName().replace(" ", "_") + ".jpg").resize(120,120).centerCrop().into(image);
 

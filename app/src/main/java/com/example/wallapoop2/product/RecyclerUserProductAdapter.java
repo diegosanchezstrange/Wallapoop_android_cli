@@ -72,7 +72,7 @@ public class RecyclerUserProductAdapter extends RecyclerView.Adapter<RecyclerUse
         });
 
         holder.tvName.setText(holder.product.getpName());
-        holder.tvPrice.setText(String.valueOf(holder.product.getpPrice()));
+        holder.tvPrice.setText(String.valueOf(holder.product.getpPrice()) + " €");
 
         Picasso.get().load("http://diegosanstr.ddns.net:5001/img/" + holder.product.getpName().replace(" ", "_") + ".jpg").resize(50,50).centerCrop().into(holder.img);
     }
